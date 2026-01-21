@@ -138,16 +138,16 @@ nav {
 
 /* --- Individual Background Images --- */
 .logo-xyz {
-  background-image: url("../assets/partner/csc.webp");
+  background-image: url("/assets/partner/csc.webp");
 }
 .logo-timber {
-  background-image: url("../assets/partner/souksakhoun.webp");
+  background-image: url("/assets/partner/souksakhoun.webp");
 }
 .logo-eco {
-  background-image: url("../assets/partner/Als.webp");
+  background-image: url("/assets/partner/Als.webp");
 }
 .logo-council {
-  background-image: url("../assets/partner/kao.webp");
+  background-image: url("/assets/partner/kao.webp");
 }
 
 /* --- Hover States --- */

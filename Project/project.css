@@ -77,7 +77,7 @@ nav {
 /* --- Project Hero --- */
 .project-hero {
     height: 40vh;
-    background: linear-gradient(rgba(73, 72, 72, 0.29), rgba(0,0,0,0.6)), url('../assets/project/image.webp');
+    background: linear-gradient(rgba(73, 72, 72, 0.29), rgba(0,0,0,0.6)), url('/assets/project/image.webp');
     background-size: cover;
     background-position: bottom;
     display: flex;

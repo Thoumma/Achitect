@@ -78,7 +78,7 @@ nav {
   height: 50vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../assets/about/bg3.webp");
+    url("/assets/about/bg3.webp");
   background-size: cover;
   background-position: center;
   display: flex;
