@@ -50,7 +50,7 @@ nav {
   height: 3px;
   background-color: #000;
   transition: all 0.3s ease;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 /* Hamburger Animation when open */
@@ -117,7 +117,7 @@ nav {
   text-align: center;
   color: #fff;
   width: 100%;
-  border-radius: 1rem;
+  border-radius: 0.1rem;
   padding: 2rem;
 }
 
@@ -181,7 +181,7 @@ nav {
   background: #f8f9fa;
   padding: 40px;
   border: 2px solid #a15f07;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 .form-group {
@@ -195,7 +195,7 @@ nav {
   border: 1px solid #ddd;
   font-family: "Quantico", sans-serif;
   outline: none;
-  border-radius: 4px;
+  border-radius: 1px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
@@ -220,7 +220,7 @@ nav {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 2px;
   transition: all 0.3s ease;
 }
 

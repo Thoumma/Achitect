@@ -50,7 +50,7 @@ nav {
   height: 3px;
   background-color: #000;
   transition: all 0.3s ease;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 /* Hamburger Animation when open */
@@ -116,7 +116,7 @@ nav {
   justify-content: center;
   text-align: center;
   color: #fff;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   padding: 2rem;
 }
 
@@ -167,7 +167,7 @@ nav {
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
-  border-radius: 8px;
+  border-radius: 2px;
   background-color: #fff;
 }
 
@@ -283,7 +283,7 @@ nav {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 1px;
   transition: all 0.3s ease;
 }
 
