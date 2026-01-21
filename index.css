@@ -455,11 +455,13 @@ section {
   margin-bottom: 30px;
 }
 
-.footer-logo {
-  height: 60px;
-  width: 60px;
+.footer-info {
   margin-bottom: 20px;
-  border-radius: 50%;
+  .icon {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
 }
 
 .footer-info p {
