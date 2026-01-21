@@ -8,10 +8,11 @@
 
 body {
   font-family: "Quantico", sans-serif;
-  background-color: #ffffff;
-  color: #333333;
-  line-height: 1.6;
-  /* Removed 100vh and flex to allow scrolling */
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* --- Navigation --- */
@@ -19,20 +20,50 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4.5%; /* Move margin from body to nav padding */
-  margin-left: 4.5%;
-  margin-right: 4.5%;
+  padding: 1rem 4.5%;
+  position: relative;
 }
 
 #Logo {
   width: 7rem;
   height: 7rem;
+  z-index: 1001;
 }
 
 #Logo img {
   object-fit: contain;
   width: 100%;
   height: 100%;
+}
+
+/* Hamburger Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background-color: #000;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation when open */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .Nav-Items ul {
@@ -57,7 +88,7 @@ nav {
   left: 0;
   width: 0;
   height: 3px;
-  background: #a15f07; /* Changed to match your brand bronze */
+  background: #a15f07;
   transition: width 0.3s ease;
 }
 
@@ -76,8 +107,7 @@ nav {
 /* --- Hero Section --- */
 .about-hero {
   height: 50vh;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("/assets/about/bg3.webp");
   background-size: cover;
   background-position: center;
@@ -86,12 +116,20 @@ nav {
   justify-content: center;
   text-align: center;
   color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
-.about-hero h1 {
+.about-hero .hero-content h1 {
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+.about-hero .hero-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  opacity: 0.9;
 }
 
 /* --- Who We Are --- */
@@ -110,6 +148,7 @@ nav {
 .who-we-are .text-block {
   flex: 1;
 }
+
 .who-we-are .image-block {
   flex: 1;
 }
@@ -118,6 +157,20 @@ nav {
   color: #a15f07;
   font-weight: 700;
   text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.who-we-are .text-block h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.who-we-are .text-block p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
 }
 
 .who-we-are .image-block img {
@@ -133,29 +186,35 @@ nav {
   background-color: #f8f9fa;
   padding: 80px 4.5%;
   display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-
-/* --- FIXED SELECTOR HERE --- */
-.mission-vision {
-  display: flex;
   gap: 2.5rem;
+  justify-content: center;
 }
 
 .card {
   flex: 1;
   padding: 2rem;
+  background-color: #ffffff;
   border: 1px solid #eee;
+  border-radius: 8px;
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
 }
 
 .icon {
@@ -164,7 +223,6 @@ nav {
   margin: 0 auto 1rem;
   border-radius: 50%;
   border: 1px solid #000;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,9 +232,7 @@ nav {
   width: 28px;
   height: 28px;
   color: #83acb9;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .card:hover .icon-svg {
@@ -188,21 +244,27 @@ nav {
 .core-values {
   padding: 100px 4.5%;
   text-align: center;
-  h2 {
-    font-size: 40px;
-  }
+}
+
+.core-values .section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a1a;
 }
 
 .values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .value-item {
   padding: 30px;
   border: 1px solid #eeeeee;
-  transition: 0.3s;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .value-item:hover {
@@ -213,6 +275,16 @@ nav {
 .value-item h4 {
   color: #a15f07;
   margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.value-item:hover h4 {
+  color: #ffffff;
+}
+
+.value-item p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* --- CTA Section --- */
@@ -223,6 +295,17 @@ nav {
   text-align: center;
 }
 
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
 .btn-journey {
   margin-top: 30px;
   padding: 15px 40px;
@@ -230,13 +313,251 @@ nav {
   color: #ffffff;
   border: none;
   font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-/* --- Responsive --- */
+.btn-journey:hover {
+  background-color: #8a4f06;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(161, 95, 7, 0.3);
+}
+
+/* ========== MOBILE RESPONSIVE STYLES ========== */
+
 @media (max-width: 768px) {
-  .who-we-are .container,
-  .mission-vision {
+  body {
+    margin-left: 2%;
+    margin-right: 2%;
+    gap: 1rem;
+  }
+
+  nav {
+    padding: 0.5rem 2%;
+  }
+
+  #Logo {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  /* Show hamburger menu */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hide nav items by default on mobile */
+  .Nav-Items {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 80px;
+  }
+
+  /* Show nav items when open */
+  .Nav-Items.open {
+    right: 0;
+  }
+
+  .Nav-Items ul {
     flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    padding: 0 2rem;
+  }
+
+  .Nav-Items li {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .Nav-Items li a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+  }
+
+  .Nav-Items li a::after {
+    display: none;
+  }
+
+  .Nav-Items li a.active {
+    color: #a15f07;
+    font-weight: 700;
+  }
+
+  /* Hero Section */
+  .about-hero {
+    height: 40vh;
+    min-height: 300px;
+    padding: 1.5rem;
+  }
+
+  .about-hero .hero-content h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .about-hero .hero-content p {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  /* Who We Are */
+  .who-we-are {
+    padding: 40px 2%;
+  }
+
+  .who-we-are .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .who-we-are .text-block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .who-we-are .text-block p {
+    font-size: 1rem;
+  }
+
+  .who-we-are .image-block img {
+    box-shadow: 10px 10px 0px #f4f4f4;
+  }
+
+  /* Mission & Vision */
+  .mission-vision {
+    padding: 40px 2%;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .icon-svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Core Values */
+  .core-values {
+    padding: 50px 2%;
+  }
+
+  .core-values .section-title h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .value-item {
+    padding: 20px;
+  }
+
+  .value-item h4 {
+    font-size: 1.2rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 50px 2%;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .btn-journey {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  #Logo {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .Nav-Items {
+    width: 80%;
+  }
+
+  .Nav-Items ul {
+    padding: 0 1.5rem;
+  }
+
+  .Nav-Items li a {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .about-hero .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-hero .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .who-we-are .text-block h2 {
+    font-size: 1.5rem;
+  }
+
+  .who-we-are .text-block p {
+    font-size: 0.95rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .core-values .section-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
   }
 }

@@ -1,215 +1,465 @@
 @import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 body {
-    font-family: "Quantico", sans-serif;
-    color: #333;
-    line-height: 1.6;
-    /* Removed height: 100vh to allow scrolling through projects */
+  font-family: "Quantico", sans-serif;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* --- Navigation (Keeping your style) --- */
+/* --- Navigation --- */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4.5%;
-      margin-left: 4.5%;
-  margin-right: 4.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4.5%;
+  position: relative;
 }
 
 #Logo {
   width: 7rem;
   height: 7rem;
+  z-index: 1001;
 }
 
 #Logo img {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hamburger Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background-color: #000;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger Animation when open */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .Nav-Items ul {
-    display: flex;
-    gap: 1.4rem;
-    list-style: none;
-    align-items: center;
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  align-items: center;
 }
 
 .Nav-Items li a {
-    color: black;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 5px 0;
-    position: relative;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 5px 0;
+  position: relative;
 }
 
 .Nav-Items li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: #A15F07;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #a15f07;
+  transition: width 0.3s ease;
 }
 
 .Nav-Items li a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .Nav-Items li a.active::after {
-    width: 100%;
+  width: 100%;
 }
-
 
 .Nav-Items li a.active {
-    color: #a15f07; 
+  color: #a15f07;
 }
-
 
 /* --- Project Hero --- */
 .project-hero {
-    height: 40vh;
-    background: linear-gradient(rgba(73, 72, 72, 0.29), rgba(0,0,0,0.6)), url('/assets/project/image.webp');
-    background-size: cover;
-    background-position: bottom;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #ffffff;
+  height: 40vh;
+  background: linear-gradient(rgba(73, 72, 72, 0.29), rgba(0, 0, 0, 0.6)),
+    url("/assets/project/image.webp");
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
-.project-hero h1 {
-    font-size: 3.5rem;
-    text-transform: uppercase;
+.project-hero .hero-content h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.project-hero .hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.95;
 }
 
 /* --- Intro Text --- */
 .project-intro {
-    padding: 60px 15%;
-    text-align: center;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #555;
+  padding: 60px 15%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+  line-height: 1.8;
 }
 
 /* --- Project Gallery Grid --- */
 .project-gallery {
-    padding: 40px 4.5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-bottom: 80px;
+  padding: 40px 4.5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
 .project-card {
-    cursor: pointer;
-    background: #fff;
-    transition: transform 0.3s ease;
+  cursor: pointer;
+  background: #fff;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
 .project-image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #eee;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #eee;
+  border-radius: 8px;
 }
 
 .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(161, 95, 7, 0.8); /* Brand Bronze Overlay */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0;
+  background: rgba(161, 95, 7, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .overlay span {
-    color: white;
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-weight: 700;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .project-card:hover .overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .project-info {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .info-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+  gap: 1rem;
 }
 
 .info-top h3 {
-    font-size: 1.4rem;
-    color: #1A1A1A;
+  font-size: 1.4rem;
+  color: #1a1a1a;
 }
 
 .info-top .year {
-    font-weight: 700;
-    color: #A15F07;
+  font-weight: 700;
+  color: #a15f07;
+  white-space: nowrap;
 }
 
 .project-info .type {
-    color: #777;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+  color: #777;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 /* --- CTA Section --- */
 .cta-section {
-    background-color: #1A1A1A;
-    color: #ffffff;
-    padding: 80px 4.5%;
-    text-align: center;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 80px 4.5%;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
 }
 
 .btn-journey {
-    margin-top: 30px;
-    padding: 15px 40px;
-    background-color: #A15F07;
-    color: #ffffff;
-    border: none;
-    font-family: "Quantico", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
+  margin-top: 30px;
+  padding: 15px 40px;
+  background-color: #a15f07;
+  color: #ffffff;
+  border: none;
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .btn-journey:hover {
-    background: #835006;
+  background: #835006;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(161, 95, 7, 0.3);
 }
 
-/* --- Responsive --- */
+/* ========== MOBILE RESPONSIVE STYLES ========== */
+
 @media (max-width: 768px) {
-    .project-hero h1 { font-size: 2.5rem; }
-    .project-gallery { grid-template-columns: 1fr; }
+  body {
+    margin-left: 2%;
+    margin-right: 2%;
+    gap: 1rem;
+  }
+
+  nav {
+    padding: 0.5rem 2%;
+  }
+
+  #Logo {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  /* Show hamburger menu */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Hide nav items by default on mobile */
+  .Nav-Items {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 80px;
+  }
+
+  /* Show nav items when open */
+  .Nav-Items.open {
+    right: 0;
+  }
+
+  .Nav-Items ul {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    padding: 0 2rem;
+  }
+
+  .Nav-Items li {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .Nav-Items li a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+  }
+
+  .Nav-Items li a::after {
+    display: none;
+  }
+
+  .Nav-Items li a.active {
+    color: #a15f07;
+    font-weight: 700;
+  }
+
+  /* Project Hero */
+  .project-hero {
+    height: 35vh;
+    min-height: 280px;
+    padding: 1.5rem;
+  }
+
+  .project-hero .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .project-hero .hero-content p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Intro Text */
+  .project-intro {
+    padding: 40px 5%;
+    font-size: 1rem;
+  }
+
+  /* Project Gallery */
+  .project-gallery {
+    padding: 30px 2%;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .info-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .info-top h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-top .year {
+    font-size: 0.9rem;
+  }
+
+  .project-info .type {
+    font-size: 0.85rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 50px 2%;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .btn-journey {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  #Logo {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .Nav-Items {
+    width: 80%;
+  }
+
+  .Nav-Items ul {
+    padding: 0 1.5rem;
+  }
+
+  .Nav-Items li a {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .project-hero .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .project-hero .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .project-intro {
+    padding: 30px 3%;
+    font-size: 0.95rem;
+  }
+
+  .project-gallery {
+    padding: 20px 2%;
+    gap: 25px;
+  }
+
+  .info-top h3 {
+    font-size: 1.1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+  }
+
+  .btn-journey {
+    padding: 10px 25px;
+    font-size: 0.85rem;
+  }
 }
