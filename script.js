@@ -6,19 +6,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('.Nav-Items ul li a');
 
     navLinks.forEach(link => {
-        // Get the absolute path of the link href
-        const linkPath = new URL(link.href).pathname;
-
-        // Check if the current path contains the link path
-        // (This works even if you are in subfolders)
-        if (currentPath.includes(linkPath) && linkPath !== "/") {
+        // Remove any existing active class first
+        link.classList.remove('active');
+        
+        // Get the href attribute
+        const linkHref = link.getAttribute('href');
+        
+        // Check if current page matches the link
+        if (currentPath.endsWith(linkHref) || 
+            currentPath.endsWith(linkHref.replace(/^\//, ''))) {
             link.classList.add('active');
-        } 
-        // Special case for Home page
-        else if (currentPath === "/" || currentPath.endsWith("index.html")) {
-            if (link.getAttribute("href").includes("index.html")) {
-                link.classList.add('active');
-            }
+        }
+        // Special handling for index/home page
+        else if ((currentPath === '/' || currentPath.endsWith('/')) && 
+                 linkHref.includes('index.html')) {
+            link.classList.add('active');
         }
     });
 
