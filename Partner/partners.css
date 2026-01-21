@@ -77,7 +77,7 @@ nav {
   height: 40vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../assets/partner/studio.png");
+    url("../assets/partner/studio.webp");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -138,16 +138,16 @@ nav {
 
 /* --- Individual Background Images --- */
 .logo-xyz {
-  background-image: url("../assets/partner/csc.png");
+  background-image: url("../assets/partner/csc.webp");
 }
 .logo-timber {
-  background-image: url("../assets/partner/souksakhoun.png");
+  background-image: url("../assets/partner/souksakhoun.webp");
 }
 .logo-eco {
-  background-image: url("../assets/partner/Als.png");
+  background-image: url("../assets/partner/Als.webp");
 }
 .logo-council {
-  background-image: url("../assets/partner/kao.png");
+  background-image: url("../assets/partner/kao.webp");
 }
 
 /* --- Hover States --- */

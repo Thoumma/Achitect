@@ -78,7 +78,7 @@ nav {
   height: 50vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../assets/about/bg3.png");
+    url("../assets/about/bg3.webp");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -137,40 +137,60 @@ nav {
   justify-content: center;
 }
 
-.mission-vision .card {
-  background: #ffffff;
-  padding: 40px;
-  flex: 1;
-  max-width: 500px;
-  border-top: 3px solid #a15f07;
-  border-radius:top 2px ;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+/* --- FIXED SELECTOR HERE --- */
+.mission-vision {
+  display: flex;
+  gap: 2.5rem;
 }
 
-/* --- FIXED SELECTOR HERE --- */
-.mission-vision .card .icon {
-  width: 70px;
-  height: 70px;
-  background: #1a1a1a;
+.card {
+  flex: 1;
+  padding: 2rem;
+  border: 1px solid #eee;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
   border-radius: 50%;
+  border: 1px solid #000;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  border: 1px solid gray;
 }
 
-.mission-vision .card .icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.icon-svg {
+  width: 28px;
+  height: 28px;
+  color: #83acb9;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.card:hover .icon-svg {
+  transform: scale(1.15);
+  color: #000;
 }
 
 /* --- Core Values --- */
 .core-values {
   padding: 100px 4.5%;
   text-align: center;
+  h2 {
+    font-size: 40px;
+  }
 }
 
 .values-grid {
