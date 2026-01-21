@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Quantico", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  /* Removed height: 100vh to allow scrolling through projects */
+}
+
+/* --- Navigation (Keeping your style) --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4.5%;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+}
+
+#Logo {
+  width: 7rem;
+  height: 7rem;
+}
+
+#Logo img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.Nav-Items ul {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  align-items: center;
+}
+
+.Nav-Items li a {
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 5px 0;
+  position: relative;
+}
+
+.Nav-Items li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #a15f07;
+  transition: width 0.3s ease;
+}
+
+.Nav-Items li a:hover::after {
+  width: 100%;
+}
+
+.Nav-Items li a.active::after {
+  width: 100%;
+}
+
+.Nav-Items li a.active {
+  color: #a15f07;
+}
+
+/* --- Partner Hero --- */
+.partner-hero {
+  height: 40vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/partner/studio.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.partner-hero h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+}
+
+/* --- Intro Text --- */
+.partner-intro {
+  padding: 80px 15%;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  background-color: #fdfdfd;
+}
+
+/* --- Logo Grid Section --- */
+/* --- The Grid Container --- */
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allows logos to move to next line on mobile */
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* Space between the boxes */
+  padding: 20px 0;
+}
+
+/* --- The Individual Box --- */
+.partner-box {
+  border: 1px solid #eee;
+  padding: 30px;
+  width: 250px; /* Gives a consistent box size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+/* --- The Logo Background Div --- */
+.partner-logo {
+  width: 120px;
+  height: 80px;
+  margin-bottom: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: 0.3s ease;
+}
+
+/* --- Individual Background Images --- */
+.logo-xyz {
+  background-image: url("../assets/partner/csc.png");
+}
+.logo-timber {
+  background-image: url("../assets/partner/souksakhoun.png");
+}
+.logo-eco {
+  background-image: url("../assets/partner/Als.png");
+}
+.logo-council {
+  background-image: url("../assets/partner/kao.png");
+}
+
+/* --- Hover States --- */
+.partner-box {
+  border-color: #a15f07;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px); /* Subtle lift effect */
+}
+
+.partner-box .partner-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.partner-box:hover p {
+  color: #a15f07;
+  font-weight: bold;
+}
+/* --- Info Grid --- */
+.partnership-info {
+  padding: 80px 4.5%;
+  background-color: #f8f9fa;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-text h2 {
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #a15f07;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 80px 4.5%;
+  text-align: center;
+}
+
+.btn-journey {
+  margin-top: 30px;
+  padding: 15px 40px;
+  background-color: #a15f07;
+  color: #ffffff;
+  border: none;
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-journey:hover {
+  background: #835006;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .partner-hero h1 {
+    font-size: 2.5rem;
+  }
+}

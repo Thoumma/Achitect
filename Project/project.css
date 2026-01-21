@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: "Quantico", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    /* Removed height: 100vh to allow scrolling through projects */
+}
+
+/* --- Navigation (Keeping your style) --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4.5%;
+      margin-left: 4.5%;
+  margin-right: 4.5%;
+}
+
+#Logo {
+  width: 7rem;
+  height: 7rem;
+}
+
+#Logo img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.Nav-Items ul {
+    display: flex;
+    gap: 1.4rem;
+    list-style: none;
+    align-items: center;
+}
+
+.Nav-Items li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 5px 0;
+    position: relative;
+}
+
+.Nav-Items li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #A15F07;
+    transition: width 0.3s ease;
+}
+
+.Nav-Items li a:hover::after {
+    width: 100%;
+}
+
+.Nav-Items li a.active::after {
+    width: 100%;
+}
+
+
+.Nav-Items li a.active {
+    color: #a15f07; 
+}
+
+
+/* --- Project Hero --- */
+.project-hero {
+    height: 40vh;
+    background: linear-gradient(rgba(73, 72, 72, 0.29), rgba(0,0,0,0.6)), url('../assets/project/image.png');
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.project-hero h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+/* --- Intro Text --- */
+.project-intro {
+    padding: 60px 15%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* --- Project Gallery Grid --- */
+.project-gallery {
+    padding: 40px 4.5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.project-card {
+    cursor: pointer;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #eee;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(161, 95, 7, 0.8); /* Brand Bronze Overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay span {
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-weight: 700;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+.project-info {
+    padding: 20px 0;
+}
+
+.info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.info-top h3 {
+    font-size: 1.4rem;
+    color: #1A1A1A;
+}
+
+.info-top .year {
+    font-weight: 700;
+    color: #A15F07;
+}
+
+.project-info .type {
+    color: #777;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    background-color: #1A1A1A;
+    color: #ffffff;
+    padding: 80px 4.5%;
+    text-align: center;
+}
+
+.btn-journey {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background-color: #A15F07;
+    color: #ffffff;
+    border: none;
+    font-family: "Quantico", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-journey:hover {
+    background: #835006;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .project-hero h1 { font-size: 2.5rem; }
+    .project-gallery { grid-template-columns: 1fr; }
+}
